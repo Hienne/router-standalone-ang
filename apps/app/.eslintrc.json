@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "router-standalone-ang",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ]
