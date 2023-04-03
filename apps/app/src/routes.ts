@@ -1,21 +1,17 @@
-import { Injectable } from '@angular/core';
 import { Route } from '@angular/router';
-
-@Injectable({providedIn: 'root'})
-export class PermissionsService {
-    private user = getUser();
-
-    isAdmin(isAdmin: boolean) {
-        return isAdmin ? this.user.isAdmin : false;
-    }
-}
 
 export const routes: Route[] = [
   {
-    path: 'dashboard',
-    loadComponent: () =>
-      import('./dashboard/dashboard.component').then(
-        (c) => c.DashboardComponent
-      ),
+    path: 'admin',
+    loadComponent: () => import('./admin/admin.component').then(c => c.AdminComponent)
   },
+  {
+    path: 'article',
+    loadChildren: () => import('./article/article.routes').then(r => r.ARTICLE_ROUTES)
+  },
+  {
+    path: '',
+    redirectTo: 'article',
+    pathMatch: 'full'
+  }
 ];

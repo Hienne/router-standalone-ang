@@ -6,12 +6,12 @@ import { provideRouter, RouterModule } from '@angular/router';
 import { routes } from './routes';
 
 @Component({
-  selector: 'router-standalone-ang-root',
+  selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
     <p>App works</p>
-    <a routerLink="dashboard">Dashboard</a>
+    <a routerLink="article">Article</a>
     <router-outlet></router-outlet>
   `,
 })

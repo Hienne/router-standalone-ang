@@ -1,0 +1,18 @@
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-article',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  template: ` <p>article works!</p>
+    <router-outlet></router-outlet>`,
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ArticleComponent {
+  constructor() {
+    console.log('hehe');
+  }
+}
