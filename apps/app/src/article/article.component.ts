@@ -6,13 +6,11 @@ import { RouterModule } from '@angular/router';
   selector: 'app-article',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  template: ` <p>article works!</p>
-    <router-outlet></router-outlet>`,
+  template: `
+    <p class="text-2xl text-bold">Articles</p>
+    <router-outlet></router-outlet>
+  `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ArticleComponent {
-  constructor() {
-    console.log('hehe');
-  }
-}
+export class ArticleComponent {}
