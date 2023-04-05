@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { ArticleDetailTitleResolve } from "../custom-title.service";
 import { ArticleComponent } from "./article.component";
 import { ArticleDetailComponent } from "./components/article-detail.component";
 import { ArticleEditComponent } from "./components/article-edit.component";
@@ -14,12 +15,14 @@ export const ARTICLE_ROUTES: Routes = [
             {
                 path: '',
                 component: ArticleListComponent,
+                // Normal title
                 title: 'List Article'
             },
             {
                 path: ':slug',
                 component: ArticleDetailComponent,
-                title: 'Detail Article'
+                // Resolve title
+                title: ArticleDetailTitleResolve
             },
             {
                 path: ':slug/edit',
@@ -28,7 +31,7 @@ export const ARTICLE_ROUTES: Routes = [
                 // canActivate: [CanEditArticleGuard],
                 // canDeactivate: [CanLeaveEditGuardGuard]
                 canActivate: [canEditArticleGuardFunctional, isAdminGuardFunctional],
-                canDeactivate: [canLeaveEditGuardFunctional]
+                canDeactivate: [canLeaveEditGuardFunctional],
             }
         ]
     }

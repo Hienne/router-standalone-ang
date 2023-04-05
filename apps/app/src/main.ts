@@ -2,7 +2,8 @@ import { bootstrapApplication } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { provideRouter, RouterModule } from '@angular/router';
+import { provideRouter, RouterModule, TitleStrategy } from '@angular/router';
+import { TemplatePageTitleStrategy } from './custom-title.service';
 import { routes } from './routes';
 
 @Component({
@@ -40,5 +41,11 @@ export class AppComponent {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
+  providers: [
+    provideRouter(routes),
+    {
+      provide: TitleStrategy,
+      useClass: TemplatePageTitleStrategy
+    }
+  ],
 }).catch((err) => console.error(err));
