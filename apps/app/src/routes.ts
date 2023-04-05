@@ -1,9 +1,13 @@
+import { inject } from '@angular/core';
 import { Route } from '@angular/router';
+import { UserService } from './user.service';
 
 export const routes: Route[] = [
   {
     path: 'admin',
-    loadComponent: () => import('./admin/admin.component').then(c => c.AdminComponent)
+    canMatch: [() => inject(UserService).currentUser.isAdmin],
+    loadComponent: () => import('./admin/admin.component').then(c => c.AdminComponent),
+    title: 'Admin'
   },
   {
     path: 'article',

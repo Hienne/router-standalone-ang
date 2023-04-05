@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { BehaviorSubject, Observable, finalize, map, mergeMap } from 'rxjs';
-import { Article, ArticleService } from './article.servies';
+import { Article, ArticleService } from '../article.servies';
 
 export const getDetailArticle = (): Observable<Article> => {
   return inject(ActivatedRoute).params.pipe(
@@ -14,11 +14,12 @@ export const getDetailArticle = (): Observable<Article> => {
 @Component({
   selector: 'app-article-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <div *ngIf="article">
       <h1>{{ article.title }}</h1>
-      <p>{{ article.content }}</p>
+      <p class="mb-3">{{ article.content }}</p>
+      <a routerLink="edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
     </div>
     <ng-template #loadingTmpl> Loading... </ng-template>
   `,

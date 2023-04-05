@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Article, ArticleService } from './article.servies';
+import { Article, ArticleService } from '../article.servies';
 
 @Component({
   selector: 'app-article-list',
