@@ -16,6 +16,14 @@ Run `nx graph` to see a diagram of the dependencies of the projects.
 
 Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and make CI faster.
 
-## Further help
+## Detail
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+Demo about Angular router:
+- Write Angular Guard (canActive, canDeactive, canMatch) by 2 ways
+  - Normal way: writing service
+  - Functional Guard: using inject() function
+
+- Title Router:
+  - New router's attribute
+  - Custom title router
+
